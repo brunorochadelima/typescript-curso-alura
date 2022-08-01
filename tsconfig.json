@@ -2,7 +2,8 @@
   "compilerOptions": {
     "outDir": "dist/js", // Caminho para enviar arquivos compilados
     "target": "ES6",  // Converter arquivos pare versão ecmaScript ES6
-    "noEmitOnError": true // Não compilar enquanto tiver erros
+    "noEmitOnError": true, // Não compilar enquanto tiver erros
+    "noImplicitAny": true
   },
 
   // Instrução para converter todo que estiver na pasta app e jogar para pasta dist/js

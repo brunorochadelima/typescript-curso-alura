@@ -3,7 +3,7 @@
     "outDir": "dist/js", // Caminho para enviar arquivos compilados
     "target": "ES6",  // Converter arquivos pare versão ecmaScript ES6
     "noEmitOnError": true, // Não compilar enquanto tiver erros
-    "noImplicitAny": true
+    "noImplicitAny": true // não deixa o typescrip inferir implicitamente o tipo any
   },
 
   // Instrução para converter todo que estiver na pasta app e jogar para pasta dist/js

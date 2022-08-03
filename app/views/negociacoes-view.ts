@@ -23,7 +23,7 @@ export class NegociacoesView {
         return `
         <tr>
           <td>
-           ?
+           ${new Intl.DateTimeFormat().format(negociacao.data)}
           </td>
           <td>
             ${negociacao.quantidade}
@@ -39,7 +39,7 @@ export class NegociacoesView {
     `;
   }
 
-  // rederiza o template no local informado pelo constructor
+  // renderiza o template no local informado pelo constructor
   update(model: Negociacoes): void {
     const template = this.template(model)
     this.elemento.innerHTML = template;

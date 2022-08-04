@@ -8,8 +8,8 @@ export class NegociacaoController {
   private inputQuantidade: HTMLInputElement;
   private inputValor: HTMLInputElement;
   private negociacoes = new Negociacoes();
-  private negociacoesView = new NegociacoesView("#negociacoesView")
-  private mensagemView = new MensagemView("#mensagemView")
+  private negociacoesView = new NegociacoesView("#negociacoesView");
+  private mensagemView = new MensagemView("#mensagemView");
 
   constructor() {
     this.inputData = document.querySelector("#data");
@@ -18,17 +18,15 @@ export class NegociacaoController {
     this.negociacoesView.update(this.negociacoes);
   }
 
-  adiciona(): void {
+  public adiciona(): void {
     const negociacao = this.criaNegociacao();
     negociacao.data.setDate(12); // tentativa de mudar a data mas que agora esta protegida pois o construtor esta retornando uma cópia da data
     this.negociacoes.adiciona(negociacao);
-    this.negociacoesView.update(this.negociacoes) 
-    this.mensagemView.update("Negociação adicionada com sucesso")
-    console.log(this.negociacoes.lista())
     this.limparFormulario();
+    this.atualizaView();
   }
 
-  criaNegociacao(): Negociacao {
+  private criaNegociacao(): Negociacao {
     const exp = /-/g;
     const date = new Date(this.inputData.value.replace(exp, ","));
     const quantidade = parseInt(this.inputQuantidade.value);
@@ -36,10 +34,15 @@ export class NegociacaoController {
     return new Negociacao(date, quantidade, valor);
   }
 
-  limparFormulario(): void {
-   this.inputData.value = '';
-   this.inputQuantidade.value = '';
-   this.inputValor.value = '';
-   this.inputData.focus();
+  private limparFormulario(): void {
+    this.inputData.value = "";
+    this.inputQuantidade.value = "";
+    this.inputValor.value = "";
+    this.inputData.focus();
+  }
+
+  private atualizaView(): void {
+    this.negociacoesView.update(this.negociacoes);
+    this.mensagemView.update("Negociação adicionada com sucesso");
   }
 }

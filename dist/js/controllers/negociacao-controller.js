@@ -14,10 +14,15 @@ export class NegociacaoController {
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
+        if (negociacao.data.getDay() > 0 && negociacao.data.getDay() < 6) {
+            this.negociacoes.adiciona(negociacao);
+            this.limparFormulario();
+            this.atualizaView();
+        }
+        else {
+            this.mensagemView.update("Apenas negociações em dias úteis são aceitas");
+        }
         negociacao.data.setDate(12); // tentativa de mudar a data mas que agora esta protegida pois o construtor esta retornando uma cópia da data
-        this.negociacoes.adiciona(negociacao);
-        this.limparFormulario();
-        this.atualizaView();
     }
     criaNegociacao() {
         const exp = /-/g;

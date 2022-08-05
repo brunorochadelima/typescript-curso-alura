@@ -1,3 +1,4 @@
+import { DiaDaSemana } from "../enums/dia-da-semana.js";
 import { Negociacao } from "../models/negociacao.js";
 import { Negociacoes } from "../models/negociacoes.js";
 import { MensagemView } from "../views/mensagem-view.js";
@@ -26,7 +27,7 @@ export class NegociacaoController {
         negociacao.data.setDate(12); // tentativa de mudar a data mas que agora esta protegida pois o construtor esta retornando uma cópia da data
     }
     ehDiaUtil(data) {
-        return data.getDay() > this.DOMINGO && data.getDay() < this.SABADO;
+        return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
     }
     criaNegociacao() {
         const exp = /-/g;

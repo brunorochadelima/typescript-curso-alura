@@ -14,7 +14,7 @@ export class Negociacao {
     return data;
   }
 
-  public criaDe(
+  public static criaDe(
     dataString: string,
     quantidadeString: string,
     valorString: string

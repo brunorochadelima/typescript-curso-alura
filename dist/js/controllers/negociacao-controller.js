@@ -24,18 +24,11 @@ export class NegociacaoController {
         this.negociacoes.adiciona(negociacao);
         this.limparFormulario();
         this.atualizaView();
-        negociacao.data.setDate(12); // tentativa de mudar a data mas que agora esta protegida pois o construtor esta retornando uma cópia da data
+        negociacao.data.setDate(12);
     }
     ehDiaUtil(data) {
         return data.getDay() > DiaDaSemana.DOMINGO && data.getDay() < DiaDaSemana.SABADO;
     }
-    // private criaNegociacao(): Negociacao {
-    //   const exp = /-/g;
-    //   const date = new Date(this.inputData.value.replace(exp, ","));
-    //   const quantidade = parseInt(this.inputQuantidade.value);
-    //   const valor = parseInt(this.inputValor.value);
-    //   return new Negociacao(date, quantidade, valor);
-    // }
     limparFormulario() {
         this.inputData.value = "";
         this.inputQuantidade.value = "";

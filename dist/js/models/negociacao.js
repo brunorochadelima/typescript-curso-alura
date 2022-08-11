@@ -8,7 +8,7 @@ export class Negociacao {
         return this.valor * this.quantidade;
     }
     get data() {
-        const data = new Date(this._data.getTime()); // gera uma cópia de data identica a encapsulada no construtor(que agora ficou protegida de modificação)
+        const data = new Date(this._data.getTime());
         return data;
     }
     static criaDe(dataString, quantidadeString, valorString) {

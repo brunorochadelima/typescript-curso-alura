@@ -1,12 +1,17 @@
 export class View {
     constructor(seletor, escapar) {
         this.escapar = false;
-        this.elemento = document.querySelector(seletor);
+        const elemento = document.querySelector(seletor);
+        if (elemento) {
+            this.elemento = elemento;
+        }
+        else {
+            throw Error(`seletor ${seletor} não existe no dom`);
+        }
         if (escapar) {
             this.escapar = escapar;
         }
     }
-    // renderiza o template no local informado pelo constructor
     update(model) {
         let template = this.template(model);
         if (this.escapar) {
